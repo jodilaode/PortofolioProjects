@@ -1,3 +1,9 @@
+-- Query ini untuk mengetahui kasus Covid-19 dan vaksinasi di berbagai negara dengan mengambil dataset dari https://lnkd.in/gQaD5-Wg
+-- kemudian saya konversi ke SQL menggunakan Microsoft SQL Server. Dari pencarian data dilakukan, dapat disimpulkan bahwa terdapat puluhan 
+-- ribu jumlah orang yang meninggal dibeberapa negara dan presentase kematian yang sempat menurun, beberapa bulan terakhir mengalami kenaikan kembali
+-- karena munculnya kasus baru
+
+
 select * 
 from PortofolioProject..CovidDeaths
 order by 3,4
@@ -6,13 +12,13 @@ order by 3,4
 --from PortofolioProject..CovidVaccinations
 --order by 3,4
 
--- # Select data that we are going to be using
+-- # Menampilkan data yang akan digunakan
 
 select location, date, total_cases, new_cases, total_deaths, population
 from PortofolioProject..CovidDeaths
 order by 1,2
 
--- # Looking at Total Cases vs Total Deaths
+-- # Mengetahui Total Kasus vs Total Kematian di Afghanistan
 
 Select location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 DeathsPercentage
 from PortofolioProject..CovidDeaths
@@ -33,7 +39,7 @@ order by 1,2
 --Pada akhir tahun 2020, total kasus mencapai 20191301 dan total mati 351039 dan peluang kematian menurun mencapai 1,7%
 
 
--- # Looking at Total Cases vs Population
+-- # Mencari Total Cases vs Population
 -- # Show what percentage of population got Covid
 Select location, date, population, total_cases, (total_cases/population)*100 PercentPopulationInfected
 from PortofolioProject..CovidDeaths
